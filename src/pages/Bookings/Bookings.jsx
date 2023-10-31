@@ -14,7 +14,7 @@ const Bookings = () => {
     axios.get(url, { withCredentials: true }).then((res) => {
       setBookings(res.data);
     });
-    // fetch(url)
+    // fetch(url,{credentials: include})
     //   .then((res) => res.json())
     //   .then((data) => setBookings(data));
   }, [url]);
