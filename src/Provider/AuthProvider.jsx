@@ -47,9 +47,13 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // const loggedUser = { email: currentUser.email };
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://car-doctor-server-six-rust.vercel.app/jwt",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
           });
@@ -57,9 +61,13 @@ const AuthProvider = ({ children }) => {
       // module-61 logout
       else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://car-doctor-server-six-rust.vercel.app/logout",
+            loggedUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log("token response", res.data);
           });

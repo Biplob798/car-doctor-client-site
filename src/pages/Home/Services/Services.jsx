@@ -1,19 +1,21 @@
-import { useEffect } from "react";
-import { useState } from "react";
+// import { useEffect } from "react";
+// import { useState } from "react";
+import useServices from "../../../hooks/useServices";
 import ServiceCard from "./ServiceCard";
 
 /* eslint-disable react/no-unescaped-entities */
 const Services = () => {
-  const [services, setServices] = useState([]);
+  const services = useServices();
+  // const [services, setServices] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/services")
-      .then((res) => res.json())
-      .then((data) => {
-        setServices(data);
-        console.log(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://car-doctor-server-six-rust.vercel.app/services")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setServices(data);
+  //       console.log(data);
+  //     });
+  // }, []);
 
   return (
     <div className="my-6">

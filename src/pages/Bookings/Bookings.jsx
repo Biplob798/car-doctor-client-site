@@ -1,28 +1,37 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+// import { useContext} from "react";
+import { useEffect, useState } from "react";
+// import { AuthContext } from "../../Provider/AuthProvider";
 import BookingsRow from "./BookingsRow";
-import axios from "axios";
+// import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Bookings = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
+  // const { user } = useContext(AuthContext);
+
+  const axiosSecure = useAxiosSecure();
 
   const [bookings, setBookings] = useState([]);
 
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `/bookings?email=${user?.email}`;
+  // const url = `https://car-doctor-server-six-rust.vercel.app/bookings?email=${user?.email}`;
 
   useEffect(() => {
-    axios.get(url, { withCredentials: true }).then((res) => {
-      setBookings(res.data);
-    });
+    axiosSecure.get(url).then((res) => setBookings(res.data));
+
+    // axios.get(url, { withCredentials: true }).then((res) => {
+    //   setBookings(res.data);
+    // });
     // fetch(url,{credentials: include})
     //   .then((res) => res.json())
     //   .then((data) => setBookings(data));
-  }, [url]);
+  }, [url, axiosSecure]);
 
   const handleDelete = (id) => {
     const proceed = confirm("Are You sure want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/bookings/${id}`, {
+      fetch(`https://car-doctor-server-six-rust.vercel.app/bookings/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -38,7 +47,7 @@ const Bookings = () => {
   };
 
   const handleBookingConfirm = (id) => {
-    fetch(`http://localhost:5000/bookings/${id}`, {
+    fetch(`https://car-doctor-server-six-rust.vercel.app/bookings/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
