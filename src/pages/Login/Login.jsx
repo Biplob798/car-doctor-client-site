@@ -28,9 +28,13 @@ const Login = () => {
         // get access token
 
         axios
-          .post("https://car-doctor-server-six-rust.vercel.app/jwt", user, {
-            withCredentials: true,
-          })
+          .post(
+            " https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/jwt",
+            user,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => {
             console.log(res.data);
             if (res.data.success) {

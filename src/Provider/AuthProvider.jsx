@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
         // const loggedUser = { email: currentUser.email };
         axios
           .post(
-            "https://car-doctor-server-six-rust.vercel.app/jwt",
+            " https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/jwt",
             loggedUser,
             {
               withCredentials: true,
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
       else {
         axios
           .post(
-            "https://car-doctor-server-six-rust.vercel.app/logout",
+            " https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/logout",
             loggedUser,
             {
               withCredentials: true,

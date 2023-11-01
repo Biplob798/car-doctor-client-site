@@ -25,13 +25,16 @@ const CheckOut = () => {
     };
     console.log(booking);
 
-    fetch("https://car-doctor-server-six-rust.vercel.app/bookings", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(booking),
-    })
+    fetch(
+      " https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/bookings",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(booking),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

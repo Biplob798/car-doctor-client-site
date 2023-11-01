@@ -15,7 +15,7 @@ const Bookings = () => {
   const [bookings, setBookings] = useState([]);
 
   const url = `/bookings?email=${user?.email}`;
-  // const url = `https://car-doctor-server-six-rust.vercel.app/bookings?email=${user?.email}`;
+  // const url = ` https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/bookings?email=${user?.email}`;
 
   useEffect(() => {
     axiosSecure.get(url).then((res) => setBookings(res.data));
@@ -31,9 +31,12 @@ const Bookings = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are You sure want to delete");
     if (proceed) {
-      fetch(`https://car-doctor-server-six-rust.vercel.app/bookings/${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        ` https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/bookings/${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -47,13 +50,16 @@ const Bookings = () => {
   };
 
   const handleBookingConfirm = (id) => {
-    fetch(`https://car-doctor-server-six-rust.vercel.app/bookings/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ status: "confirm" }),
-    })
+    fetch(
+      ` https://car-doctor-server-3961cyx67-biplobs-projects-623841b5.vercel.app/bookings/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ status: "confirm" }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
